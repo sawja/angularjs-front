@@ -1,0 +1,9 @@
+.actor-details {
+    margin:20px 0px 20px 0px;
+    background-color: #2e618d;
+    color: #f9f9f9
+}
+
+.actor-details:hover {
+    background-color: #428bca;
+}

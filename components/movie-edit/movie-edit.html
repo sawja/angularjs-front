@@ -1,0 +1,34 @@
+<div class="container-fluid movie-add">
+
+        <h3>Edit movie:</h3>
+        <form name="movieForm" ng-submit="$ctrl.callbackSubmit()" novalidate>
+            <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" name="inputName" id="inputName" aria-describedby="nameValidity" placeholder="Enter name" ng-model="$ctrl.movie.name" ng-required="true" validate-name>
+                <small id="nameValidity" class="form-text text-muted">Valid: {{movieForm.inputName.$valid}}</small>
+            </div>
+            <div class="form-group">
+                <label for="inputRuntime">Runtime</label>
+                <input type="number" class="form-control" name="inputRuntime" id="inputRuntime" aria-describedby="runtimeValidity" placeholder="Enter runtime" ng-model="$ctrl.movie.runtime" ng-required="true" validate-runtime>
+                <small id="runtimeValidity" class="form-text text-muted">Valid: {{movieForm.inputRuntime.$valid}}</small>
+            </div>
+            <div class="form-group">
+                <label for="inputDate">Release Date</label>
+                <input type="date" class="form-control" name="inputDate" id="inputDate" aria-describedby="dateValidity" ng-model="$ctrl.nmovie.releaseDate" ng-required="true" validate-date>
+                <small id="dateValidity" class="form-text text-muted">Valid: {{movieForm.inputDate.$valid}}</small>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-disabled="movieForm.$invalid">Submit</button>
+        </form>
+
+        <hr>
+        <h3>Detach actor:</h3>
+        <div ng-repeat="actor in $ctrl.movie.actors">
+            {{ actor.firstName }} {{ actor.lastName}}
+            <button class="btn btn-danger" ng-click="$ctrl.detachActor(actor._id, $index)">Detach</button>
+            <hr>
+        </div>
+        <h3>Add actor:</h3>
+        <button class="btn btn-primary" ng-click="$ctrl.updateOptions()">Load Actors</button>
+        <select ng-model="$ctrl.selectedOption" ng-options="opt for opt in $ctrl.options"></select>
+        <button class="btn btn-success" ng-click="$ctrl.appendActor()">Append</button>
+</div>

@@ -1,0 +1,22 @@
+<div class="container-fluid movie-details">
+    <div class="row movie-details-title">
+        <div class="col-sm-12 text-center ">
+            <h4>{{ $ctrl.movie.name }}</h4>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            Release Date: {{ $ctrl.movie.releaseDate | filterDate }}
+        </div>
+        <div class="col-sm-4 text-center">
+            Runtime: {{ $ctrl.movie.runtime}} minutes,
+        </div>
+        <div class="col-sm-4 text-center">
+            Actors: 
+            <span ng-repeat="actor in $ctrl.movie.actors">
+                {{ actor.firstName }} {{ actor.lastName }},
+            </span>
+        </div>      
+    </div>
+      
+</div>
